@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excel Asosiy Funksiyalari • 2026</title>
+    <title>Microsoft Office To‘liq Qo‘llanma</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         
@@ -13,179 +13,270 @@
             margin: 0;
             padding: 20px;
             color: #e2e8f0;
-            line-height: 1.6;
         }
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            background: rgba(15, 23, 42, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            background: rgba(15, 23, 42, 0.96);
+            border-radius: 24px;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.6);
             overflow: hidden;
         }
         header {
             background: linear-gradient(90deg, #3b82f6, #60a5fa);
-            padding: 50px 30px;
+            padding: 70px 30px;
             text-align: center;
             color: white;
         }
-        h1 { margin: 0; font-size: 2.8em; font-weight: 700; }
-        .subtitle { font-size: 1.3em; margin-top: 10px; opacity: 0.95; }
-        main { padding: 40px 30px; }
+        h1 { margin: 0; font-size: 3em; font-weight: 700; }
+        .subtitle { font-size: 1.35em; margin-top: 12px; opacity: 0.95; }
+
+        .app-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px 30px;
+            flex-wrap: wrap;
+        }
+        .app-btn {
+            background: #1e2937;
+            color: white;
+            border: 3px solid #60a5fa;
+            padding: 25px 50px;
+            font-size: 1.5em;
+            font-weight: 700;
+            border-radius: 18px;
+            cursor: pointer;
+            transition: all 0.4s;
+            min-width: 240px;
+            text-align: center;
+        }
+        .app-btn:hover {
+            background: #60a5fa;
+            color: #0f172a;
+            transform: scale(1.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.92);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: #1e2937;
+            width: 94%;
+            max-width: 1000px;
+            border-radius: 20px;
+            padding: 35px;
+            max-height: 92vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        .close {
+            position: absolute;
+            top: 18px; right: 30px;
+            font-size: 2.8em;
+            cursor: pointer;
+            color: #94a3b8;
+        }
+        .modal h2 {
+            color: #60a5fa;
+            text-align: center;
+            margin-bottom: 30px;
+        }
         .func-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 22px;
         }
         .func-card {
-            background: #1e2937;
+            background: #0f172a;
+            padding: 22px;
             border-radius: 16px;
-            padding: 20px;
-            transition: all 0.4s ease;
             border: 1px solid #334155;
-            cursor: pointer;
         }
-        .func-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 25px 40px rgba(59, 130, 246, 0.3);
-            border-color: #60a5fa;
-        }
-        .func-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-        .func-icon { font-size: 2.2em; }
         .func-name {
-            font-size: 1.45em;
-            font-weight: 600;
-            margin: 0;
-            color: #60a5fa;
+            color: #93c5fd;
+            font-size: 1.35em;
+            margin: 0 0 12px 0;
         }
         .syntax {
-            background: #0f172a;
+            background: #1e2937;
             padding: 14px;
             border-radius: 10px;
             font-family: 'Courier New', monospace;
-            font-size: 1.05em;
-            color: #93c5fd;
-            margin: 15px 0;
-            border-left: 4px solid #3b82f6;
-        }
-        .description { color: #cbd5e1; margin: 12px 0; }
-        .example {
-            background: #334155;
-            padding: 12px 16px;
-            border-radius: 8px;
-            font-size: 1em;
-            color: #e0f2fe;
+            color: #bae6fd;
+            margin: 12px 0;
         }
         img {
             width: 100%;
             border-radius: 12px;
-            margin: 15px 0 10px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            margin: 15px 0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         }
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #0f172a;
-            color: #94a3b8;
-            font-size: 0.95em;
-        }
+        .desc { color: #cbd5e1; line-height: 1.6; }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>📊 Microsoft Excel Asosiy Funksiyalari</h1>
-            <p class="subtitle">Eng muhim funksiyalar • Qisqa, aniq va rasmlar bilan</p>
+            <h1>📘 Microsoft Office To‘liq Qo‘llanma</h1>
+            <p class="subtitle">Excel • Word • PowerPoint — Barcha muhim funksiyalar rasmlar bilan</p>
         </header>
-        
-        <main>
-            <div class="func-list">
 
-                <!-- 1. SUM -->
-                <div class="func-card" onclick="this.classList.toggle('active')">
-                    <div class="func-header">
-                        <span class="func-icon">➕</span>
-                        <h3 class="func-name">SUM (СУММ)</h3>
-                    </div>
-                    <div class="syntax">=SUM(A1:A10)</div>
-                    <p class="description">Tanlangan diapazondagi sonlarning yig‘indisini hisoblaydi.</p>
-                    <div class="example"><strong>Misol:</strong> =SUM(B2:B100) — umumiy savdo summasi</div>
-                </div>
-
-                <!-- 2. SUMIF -->
-                <div class="func-card" onclick="this.classList.toggle('active')">
-                    <div class="func-header">
-                        <span class="func-icon">📌</span>
-                        <h3 class="func-name">SUMIF (СУММЕСЛИ)</h3>
-                    </div>
-                    <div class="syntax">=SUMIF(A2:A100; "Toshkent"; B2:B100)</div>
-                    <p class="description">Bitta shart bo‘yicha yig‘indi hisoblaydi.</p>
-                    <div class="example"><strong>Misol:</strong> Faqat Toshkentdagi savdolarni qo‘shish</div>
-                </div>
-
-                <!-- 3. Yangi nom bilan -->
-                <div class="func-card" onclick="this.classList.toggle('active')">
-                    <div class="func-header">
-                        <span class="func-icon">📊</span>
-                        <h3 class="func-name">Ko‘p shartli yig‘indi (SUMIFS)</h3>
-                    </div>
-                    <div class="syntax">=SUMIFS(B2:B100; A2:A100; "Toshkent"; C2:C100; ">500000")</div>
-                    <p class="description">Bir nechta shartlarni bir vaqtda tekshirib, yig‘indi hisoblaydi.</p>
-                    <div class="example"><strong>Misol:</strong> Toshkentdagi va 500 000 dan yuqori savdolarni qo‘shish</div>
-                </div>
-
-                <!-- 4. COUNTIF -->
-                <div class="func-card" onclick="this.classList.toggle('active')">
-                    <div class="func-header">
-                        <span class="func-icon">🔢</span>
-                        <h3 class="func-name">COUNTIF (СЧЁТЕСЛИ)</h3>
-                    </div>
-                    <div class="syntax">=COUNTIF(A2:A100; "Toshkent")</div>
-                    <p class="description">Shartga mos keladigan kataklarni sanaydi.</p>
-                </div>
-
-                <!-- 5. VLOOKUP -->
-                <div class="func-card" onclick="this.classList.toggle('active')">
-                    <div class="func-header">
-                        <span class="func-icon">🔍</span>
-                        <h3 class="func-name">VLOOKUP (ВПР)</h3>
-                    </div>
-                    <div class="syntax">=VLOOKUP("A101"; A2:C500; 3; FALSE)</div>
-                    <p class="description">Vertikal jadvalda qiymatni qidirib, mos qiymatni qaytaradi.</p>
-                    <div class="example"><strong>Eslatma:</strong> Yangi Excelda XLOOKUP yaxshiroq.</div>
-                </div>
-
-                <!-- 6. XLOOKUP -->
-                <div class="func-card" onclick="this.classList.toggle('active')">
-                    <div class="func-header">
-                        <span class="func-icon">🚀</span>
-                        <h3 class="func-name">XLOOKUP (Zamonaviy)</h3>
-                    </div>
-                    <div class="syntax">=XLOOKUP(lookup_value; lookup_array; return_array)</div>
-                    <p class="description">VLOOKUPning yangi va kuchliroq versiyasi.</p>
-                </div>
-
-                <!-- 7. IF -->
-                <div class="func-card" onclick="this.classList.toggle('active')">
-                    <div class="func-header">
-                        <span class="func-icon">❓</span>
-                        <h3 class="func-name">IF (ЕСЛИ)</h3>
-                    </div>
-                    <div class="syntax">=IF(B2>1000000; "Yaxshi"; "Past")</div>
-                    <p class="description">Shartni tekshirib, ikki xil natija qaytaradi.</p>
-                </div>
-
-            </div>
-        </main>
-
-        <footer>
-            <p>Tayyorladi: Grok (xAI) • 2026</p>
-        </footer>
+        <div class="app-buttons">
+            <button class="app-btn" onclick="showApp(0)">📊 Excel</button>
+            <button class="app-btn" onclick="showApp(1)">📝 Word</button>
+            <button class="app-btn" onclick="showApp(2)">📽️ PowerPoint</button>
+        </div>
     </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">×</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        const apps = [
+            // ==================== EXCEL (oldingi + yangilar) ====================
+            {
+                title: "📊 Microsoft Excel",
+                content: `
+                    <div class="func-list">
+                        <div class="func-card">
+                            <h3 class="func-name">SUM (СУММ)</h3>
+                            <div class="syntax">=SUM(B2:B100)</div>
+                            <p class="desc">Sonlarning yig‘indisini hisoblash</p>
+                            <img src="https://picsum.photos/id/1015/800/420" alt="SUM">
+                        </div>
+                        <div class="func-card">
+                            <h3 class="func-name">AVERAGE (O‘rtacha)</h3>
+                            <div class="syntax">=AVERAGE(B2:B100)</div>
+                            <p class="desc">Sonlarning o‘rtacha qiymati</p>
+                            <img src="https://picsum.photos/id/201/800/420" alt="AVERAGE">
+                        </div>
+                        <div class="func-card">
+                            <h3 class="func-name">SUMIFS (Ko‘p shartli yig‘indi)</h3>
+                            <div class="syntax">=SUMIFS(B2:B100; A2:A100; "Toshkent"; C2:C100; ">500000")</div>
+                            <p class="desc">Bir nechta shart bo‘yicha yig‘indi</p>
+                        </div>
+                        <div class="func-card">
+                            <h3 class="func-name">VLOOKUP (ВПР)</h3>
+                            <div class="syntax">=VLOOKUP("A101"; A2:D500; 3; FALSE)</div>
+                            <p class="desc">Vertikal jadvalda qiymatni qidirish</p>
+                            <img src="https://picsum.photos/id/1015/800/420" alt="VLOOKUP">
+                        </div>
+                        <div class="func-card">
+                            <h3 class="func-name">MIN (Eng kichik)</h3>
+                            <div class="syntax">=MIN(B2:B100)</div>
+                            <p class="desc">Eng kichik qiymatni topish</p>
+                        </div>
+                        <div class="func-card">
+                            <h3 class="func-name">MAX (Eng katta)</h3>
+                            <div class="syntax">=MAX(B2:B100)</div>
+                            <p class="desc">Eng katta qiymatni topish</p>
+                        </div>
+                        <div class="func-card">
+                            <h3 class="func-name">IF (Agar... bo‘lsa)</h3>
+                            <div class="syntax">=IF(B2>500000; "Yaxshi"; "Past")</div>
+                            <p class="desc">Shartli formula (vybor)</p>
+                            <img src="https://picsum.photos/id/133/800/420" alt="IF">
+                        </div>
+                    </div>`
+            },
+            // ==================== WORD (oldingi + yangilar) ====================
+            {
+                title: "📝 Microsoft Word",
+                content: `
+                    <div class="func-list">
+                        <div class="func-card">
+                            <h3 class="func-name">SUM(ABOVE) – Jadval yig‘indisi</h3>
+                            <div class="syntax">=SUM(ABOVE)</div>
+                            <p class="desc">Jadval ichida yuqoridagi sonlarni qo‘shish</p>
+                        </div>
+                        <div class="func-card">
+                            <h3 class="func-name">Mail Merge – Ommaviy xat</h3>
+                            <div class="syntax">Mailings → Start Mail Merge</div>
+                            <p class="desc">Ko‘p odam uchun shaxsiy hujjat yaratish</p>
+                        </div>
+                        <div class="func-card">
+                            <h3 class="func-name">Table of Contents (Mundarija)</h3>
+                            <div class="syntax">References → Table of Contents</div>
+                            <p class="desc">Avtomatik mundarija yaratish</p>
+                        </div>
+                        <div class="func-card">
+                            <h3 class="func-name">Page Number (Varaq raqami)</h3>
+                            <div class="syntax">Insert → Page Number</div>
+                            <p class="desc">Har bir sahifaga raqam qo‘yish</p>
+                            <img src="https://picsum.photos/id/251/800/420" alt="Page Number">
+                        </div>
+                        <div class="func-card">
+                            <h3 class="func-name">Section Break (Sahifa ajratish)</h3>
+                            <div class="syntax">Layout → Breaks → Section Breaks</div>
+                            <p class="desc">Hujjatni bo‘limlarga ajratish</p>
+                        </div>
+                        <div class="func-card">
+                            <h3 class="func-name">Ramka qo‘yish (Page Borders)</h3>
+                            <div class="syntax">Design → Page Borders</div>
+                            <p class="desc">Sahifaga chiroyli ramka qo‘yish</p>
+                            <img src="https://picsum.photos/id/133/800/420" alt="Borders">
+                        </div>
+                    </div>`
+            },
+            // ==================== POWERPOINT (oldingi + yangilar) ====================
+            {
+                title: "📽️ Microsoft PowerPoint",
+                content: `
+                    <div class="func-list">
+                        <div class="func-card">
+                            <h3 class="func-name">Animations</h3>
+                            <div class="syntax">Animations → Add Animation</div>
+                            <p class="desc">Ob'ektlarga kirish, harakat va chiqish animatsiyasi</p>
+                            <img src="https://picsum.photos/id/870/800/420" alt="Animations">
+                        </div>
+                        <div class="func-card">
+                            <h3 class="func-name">Video qo‘shish</h3>
+                            <div class="syntax">Insert → Video → This Device</div>
+                            <p class="desc">Taqdimotga video fayl qo‘shish va boshqarish</p>
+                            <img src="https://picsum.photos/id/1016/800/420" alt="Video">
+                        </div>
+                        <div class="func-card">
+                            <h3 class="func-name">Morph Transition</h3>
+                            <div class="syntax">Transitions → Morph</div>
+                            <p class="desc">Slaydlar orasida silliq o‘tish</p>
+                        </div>
+                        <div class="func-card">
+                            <h3 class="func-name">SmartArt</h3>
+                            <div class="syntax">Insert → SmartArt</div>
+                            <p class="desc">Matndan avtomatik diagrammalar yaratish</p>
+                        </div>
+                    </div>`
+            }
+        ];
+
+        function showApp(index) {
+            const app = apps[index];
+            document.getElementById('modal-body').innerHTML = `
+                <h2>${app.title}</h2>
+                ${app.content}
+            `;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") closeModal();
+        });
+    </script>
 </body>
 </html>
